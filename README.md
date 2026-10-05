@@ -6,6 +6,8 @@ Python data-science project on a logistics scenario ("SouthRoute Retail"): a reg
 
 > All datasets are **simulated** (or, in Week 2, DataCo-style simulated data) so the full pipeline runs without downloads. Results demonstrate the methods and are not real company performance.
 
+![Late deliveries by district](week3_eda_visualization/figs/fig6_district_late.png)
+
 ## Repository Structure
 
 | Folder | Task | Main file | Output |
@@ -37,8 +39,8 @@ Week 2 uses the real [DataCo Smart Supply Chain](https://www.kaggle.com/datasets
 **Week 3: EDA and visualization.** 8,000 simulated shipments; central tendency, distributions, correlations and eight charts. Findings: lateness is concentrated in festival season, two weak vans (V07, V11) and two long-distance districts; distance is the main cost driver.
 
 **Week 4: Predictive modeling and optimization.**
-- Delay regression: baseline, Linear, Decision Tree, Random Forest, Gradient Boosting; time-based split, `TimeSeriesSplit` cross-validation and grid search. Final tuned Gradient Boosting: test MAE 0.38 days, RMSE 0.48, R² 0.42.
-- Late-shipment classifier: ROC-AUC about 0.90; the riskiest 20% of shipments contain about 77% of late ones.
+- Delay regression: baseline, Linear, Decision Tree, Random Forest, Gradient Boosting; time-based split, `TimeSeriesSplit` cross-validation and grid search. Final tuned Gradient Boosting: test MAE 0.37 days, RMSE 0.48, R² 0.42.
+- Late-shipment classifier: ROC-AUC about 0.90, but late shipments are only ~4% of the test set, so precision is low (~0.20 to 0.22 at the chosen recall). The riskiest 20% of shipments contain about 77% of late ones, which is the more useful way to read it.
 - Optimization: risk-aware van allocation (linear programming, expected late shipments 643 to 404), route sequencing (nearest neighbour + 2-opt, 698 km to 384 km on a sample run), festival capacity planning (second shift covers peak weeks).
 
 ## Tech Stack
